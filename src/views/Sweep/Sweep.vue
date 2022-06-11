@@ -15,7 +15,10 @@
         <div @click="quitGame()">结束</div>
       </div>
       <div v-if="isGameStart">用时：{{ usedTime }}s</div>
-      <div v-else @click="rankVisibility = true" class="rank-list">排行榜</div>
+      <div v-else class="rank-list">
+        <span @click="rankVisibility = true">排行榜</span>
+        <span @click="$router.push('/')">返回主页</span>
+      </div>
     </div>
     <div
       id="sweep-body"
@@ -564,8 +567,11 @@ export default {
     }
     .rank-list {
       cursor: pointer;
-      &:hover {
-        color: #409eff;
+      span {
+        margin-left: 50px;
+        &:hover {
+          color: #409eff;
+        }
       }
     }
     .handles {
